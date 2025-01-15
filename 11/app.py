@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 
 # Google Maps APIキー
-API_KEY = "AIzaSyAVe3tagRZD89cYCGsoAFVUfWojlJwiZo4"
+#API_KEY = "" ここは本来はapi key
 gmaps = GoogleMapsClient(key=API_KEY)
 
 @app.route("/", methods=["GET", "POST"])
