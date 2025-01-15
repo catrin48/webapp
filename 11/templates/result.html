@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配車サービス結果</title>
+</head>
+<body>
+    <h1>配車サービスルート計算結果</h1>
+
+    {% if route_details %}
+        <table border="1">
+            <tr>
+                <th>ルート</th>
+                <th>距離</th>
+                <th>所要時間</th>
+                <th>到着時刻</th>
+            </tr>
+            {% for route in route_details %}
+                <tr>
+                    <td>{{ route.route }}</td>
+                    <td>{{ route.distance }}</td>
+                    <td>{{ route.duration }}</td>
+                    <td>
+                        <ul>
+                            {% for time in route.times %}
+                                <li>{{ time }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>ルートの結果はありません。</p>
+    {% endif %}
+</body>
+</html>
+
